@@ -12,7 +12,7 @@
 
 ### 模块化样式分析
 
-- #loginModal 样式总结
+- `#loginModal` 样式总结
 
     - 布局分析
 
@@ -32,7 +32,7 @@
 
 - index.html
 
-    - #loginModal
+    - `#loginModal`
 
         - from -> form;
         - h2 & a 中的登陆 －> 登录;

@@ -10,7 +10,7 @@
 </head>
 <body>
     <!-- login -->
-    <div class="m-modal" id="loginModal">
+    <div class="m-modal f-dn" id="loginModal">
         <div class="bd">
             <div class="close"><span class="f-csp" id="closeLoginModal">X</span></div>
             <div class="m-login">
@@ -24,5 +24,43 @@
         </div>
     </div>
     <!-- /login -->
+
+    <!-- video -->
+    <div class="m-modal f-dn" id="videoModal">
+        <div class="bd">
+            <div class="close"><span class="closebtn f-csp" id="closeVideo">X</span></div>
+            <div class="m-video">
+                <p class="tt">请观看下面的视频</p>
+                <video autobuffer="" controls="" class="video">
+                    <source src="http://mov.bn.netease.com/open-movie/nos/mp4/2014/12/30/SADQ86F5S_shd.mp4" type="video/mp4">
+				    <!-- When HTML5 was disabled, using the object element -->
+                    <object type="video/mp4">
+                        <param name="src" value="http://mov.bn.netease.com/open-movie/nos/mp4/2014/12/30/SADQ86F5S_shd.mp4">
+                        <param name="autoplay" value="false">
+                        <param name="autoStart" value="0">
+                        <p><a href="http://mov.bn.netease.com/open-movie/nos/mp4/2014/12/30/SADQ86F5S_shd.mp4">Download this video file.</a></p>
+                    </object>
+                </video>
+            </div>
+        </div>
+    </div>
+    <!-- /video -->
+
+    <!-- tips -->
+    <div class="m-tips" id="tips">
+        <div class="g-box">
+            <div class="f-fl">
+                网易云课堂微专业，帮助你掌握专业技能，令你求职或加薪多一份独特优势！
+                <a href="#" class="viewnow">立即查看&gt;</a>
+            </div>
+            <div class="f-fr f-csp">
+                <a href="#" id="closeTips">
+                    <span class="u-icon u-icon-close"></span>
+                    &nbsp;不在提醒
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- /tips -->
 </body>
 </html>

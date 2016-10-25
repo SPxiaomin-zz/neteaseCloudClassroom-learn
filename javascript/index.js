@@ -26,7 +26,6 @@
     });
 })();
 
-// util.ready
 // util.getCookies
 // util.setCookie
 // util.addClass

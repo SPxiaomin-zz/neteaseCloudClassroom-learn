@@ -6,6 +6,8 @@
 
 - [css 总结](#css-总结)
 
+- [js 总结](#js-总结)
+
 - [原作者错误处](#原作者错误处)
 
 ## html 总结
@@ -19,48 +21,50 @@
 
 - index.css 采用了模块化的代码编写方式，方便代码复用和管理；
 
-        /* ==========================================================================
-           module:video
-        ============================================================================ */
+    - 并通过使用特殊的注释来便于区分；
 
-### 模块化样式分析
+- 模块化样式分析
 
-- `#loginModal` 样式总结
+    - `#loginModal` 样式总结
 
-    - 布局分析
+        - 布局分析
 
-        - .m-modal 使用 `position: fixed;` & `z-index: 9999;`：
+            - .m-modal 使用 `position: fixed;` & `z-index: 9999;`：
 
-            - 使得其覆盖在其它元素之上；
-            - 并成为 .bd 的 containing box；
+                - 使得其覆盖在其它元素之上；
+                - 并成为 .bd 的 containing box；
 
-        - .bd 使用 `position: absolute;` & `transform: translate(-50%, -50%);` 来实现水平和垂直居中；
+            - .bd 使用 `position: absolute;` & `transform: translate(-50%, -50%);` 来实现水平和垂直居中；
 
-    - 细节分析
+        - 细节分析
 
-        - input 元素配色搭配得非常巧妙，从 `background-color -> border -> box-shadow` 颜色逐层加深，搭配出来的效果比较的好看；
-        - .submit 使用了 `radial-gradient` 和 `box-shadow` 实现了不错的效果；
+            - input 元素配色搭配得非常巧妙，从 `background-color -> border -> box-shadow` 颜色逐层加深，搭配出来的效果比较的好看；
+            - .submit 使用了 `radial-gradient` 和 `box-shadow` 实现了不错的效果；
 
-- `#videoModal` 样式总结
+    - `#videoModal` 样式总结
 
-    - 布局分析
+        - 布局分析
 
-        - 使用和 `#loginModal` 一样的部分样式；
+            - 使用和 `#loginModal` 一样的部分样式；
 
-    - 细节分析
+        - 细节分析
 
-        - video 通过使用 `width: 100%;` 来实现了适当的大小设置；
+            - video 通过使用 `width: 100%;` 来实现了适当的大小设置；
 
-- `#tips` 样式总结
+    - `#tips` 样式总结
 
-    - 布局分析
+        - 布局分析
 
-        - 垂直方向字体居中使用 `line-height`；
-        - 使用 `@media` 实现了响应式宽度设置 & 设置 `margin: 0 auto` 实现水平方向居中效果；
+            - 垂直方向字体居中使用 `line-height`；
+            - 使用 `@media` 实现了响应式宽度设置 & 设置 `margin: 0 auto` 实现水平方向居中效果；
 
-    - 细节分析
+        - 细节分析
 
-        - 右浮动中的 `X` 符号通过多添加一个标签并设置背景图片实现；
+            - 右浮动中的 `X` 符号通过多添加一个标签并设置背景图片实现；
+
+## js 总结
+
+
 
 ## 原作者错误处
 

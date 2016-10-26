@@ -25,9 +25,3 @@
         }
     });
 })();
-
-// util.getCookies
-// util.setCookie
-// util.addClass
-// util.addEventListener
-// util.preventDefault

@@ -85,6 +85,19 @@
     };
 
     /**
+     * 传入事件对象，组织该事件的默认事件
+     * @param {[type]} event [description]
+     * @param {[type]}       [description]
+     */
+    var preventDefault = util.preventDefault = function(event) {
+        if (event.preventDefault) {
+            event.preventDefault();
+        } else {
+            event.returnValue = false;
+        }
+    };
+
+    /**
      * 获取当前文档的 Cookies，返回 Cookie 对象
      * @return {[type]} [description]
      */

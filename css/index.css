@@ -2,6 +2,10 @@
    布局
 ============================================================================ */
 
+.g-hd {
+    height: 90px;
+}
+
 .g-box {
     width: 1205px;
 
@@ -25,8 +29,29 @@
 .u-icon-close {
     width: 9px;
     height: 9px;
-    
+
     background: url(../images/icons/close.png) no-repeat;
+}
+
+.u-icon-plus {
+    width: 8px;
+    height: 8px;
+
+    background: url(../images/icons/plus.png) 0 0 no-repeat;
+}
+
+.u-icon-check {
+    width: 11px;
+    height: 9px;
+
+    background: url(../images/icons/check.png) 0 0 no-repeat;
+}
+
+.u-icon-magnify {
+    width: 19px;
+    height: 19px;
+
+    background: url(../images/icons/magnifiy.png) 0 0 no-repeat;
 }
 
 /* ==========================================================================
@@ -43,6 +68,109 @@
 
 .m-tips .viewnow {
     color: #39a030;
+}
+
+/* ==========================================================================
+   module: top
+============================================================================ */
+
+.m-top {
+    height: 22px;
+
+    padding: 33px 0 37px 0;
+}
+
+.m-top .attention {
+    margin-left: 30px;
+
+    line-height: 22px;
+}
+
+.m-top .attention.z-show .hbfo {
+    display: none;
+}
+
+.m-top .attention.z-hide .dnc {
+    display: none;
+}
+
+.m-top .dnc a {
+    display: block;
+
+    width: 55px;
+
+    border-radius: 2px;
+
+    color: #fff;
+    text-align: center;
+
+    background: #21a557;
+}
+
+.m-top .hbfo {
+    height: 20px;
+
+    border: 1px solid #efefef;
+    border-radius: 2px;
+    padding: 0px 6px;
+
+    line-height: 20px;
+
+    background: #f8f8f8;
+}
+
+.m-top .hbfo:hover {
+    background-color: #fff;
+}
+
+.m-top .cancel {
+    color: #999;
+}
+
+.m-top .info {
+    color: #333;
+}
+
+.m-top .interval {
+    color: #ccc;
+}
+
+.m-top .cancel:hover {
+    color: #21a557;
+    text-decoration: underline;
+}
+
+.m-top .num {
+    margin-left: 15px;
+
+    color: #666;
+}
+
+.m-top .nav {
+    font-size: 16px;
+}
+
+.m-top .nav .search,
+.m-top .nav .netease {
+    margin-left: 0;
+}
+
+.m-top .netease a:hover {
+    color: #39a030;
+}
+
+.m-top .nav .search {
+    margin: 0px 14px 0px 30px;
+}
+
+.m-top .nav li {
+    float: left;
+
+    margin-left: 55px;
+}
+
+.m-top .search .u-icon-magnify:hover {
+    background: url(../images/icons/magnifiy-hover.png) 0 0 no-repeat;
 }
 
 /* ==========================================================================

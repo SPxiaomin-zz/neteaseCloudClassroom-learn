@@ -133,7 +133,5 @@
     });
 })();
 
-// removeClass
 // ajax
-// triggerEventListener
 // md5 文件载入

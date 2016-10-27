@@ -88,6 +88,10 @@
 
 ## js 总结
 
+- `util.js`：
+
+    - 通过使用匿名函数 & `window` 作为参数传入，来实现模块化的代码阻止方式；
+
 - 顶部通知实现总结
 
     - 主要是借助 `cookie` & `click` 事件：
@@ -110,4 +114,7 @@
 
 - util.js
 
-    - `addClass`: 
+    - `addClass` & `removeClass`:
+
+        - 问题： 由于作者在 `addClass` 使用了三元符号添加了一个空格，并且在 `removeClass` 中 `replace` 的时候也是使用一个空格进行替换的，所以就会产生两个空格。
+        - 解决方案： 通过在 `removeClass` 中的 `forEach` 中替换之后添加 `oldClassName = oldClassName.trim()` 去掉了字符串两边多余的空格。

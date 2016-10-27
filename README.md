@@ -107,3 +107,7 @@
 
         - .u-icon-magnifiy -> .u-icon-magnify
         - .nav > li `display` 属性由于浮动的原因属于多余的设置；
+
+- util.js
+
+    - `addClass`: 

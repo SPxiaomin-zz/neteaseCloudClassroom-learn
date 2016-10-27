@@ -63,6 +63,7 @@
                 !hasClass(el, item) && classArr.push(item);
             });
 
+            oldClassName = oldClassName.trim();
             classArr.length > 0 && (el.className += (oldClassName ? ' ' : '') + classArr.join(' '));
         }
     };

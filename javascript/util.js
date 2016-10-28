@@ -357,7 +357,50 @@
             return _xmlHttpReq;
         };
 
-        return afn
+        return function(opts) {
+            opts.method && (opts.method = opts.method.toUpperCase());
+
+            // 浅拷贝
+            opts = extend({}, defaults, opts);
+            xmlHttpReq || (xmlHttpReq = getXMLHttpReq());
+            var xhr = new xmlHttpReq();
+
+            if (opts.method === 'GET' && opts.data != null && opts.data != 'undefined') {
+                opts.url = opts.url + '?' + serializeObj_str(opts.data);
+            }
+
+            // 打开链接
+            xhr.open(opts.method, opts.url, opts.async);
+
+            // 设置 header
+            if (opts.header) {
+                for (var p in opts.header) {
+                    xhr.setRequestHeader(p, opts.header[p]);
+                }
+            }
+
+            // 监控 readyState 改变事件
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4) {
+                    var _responseText = xhr.responseText;
+
+                    if (xhr.status == 200) {
+                        var _successFn = opts.success;
+                        typeof(_successFn) == 'function' && _successFn(_responseText);
+                    } else {
+                        var _errorFn = opts.error;
+                        typeof(_errorFn) == 'function' && _errorFn(_responseText);
+                    }
+                }
+            };
+
+            // 发送数据
+            if (opts.method.toUpperCase() === 'GET') {
+                xhr.send();
+            } else if (opts.method.toUpperCase() === 'POST') {
+                xhr.send(serializeObj_str(opts.data));
+            }
+        };
     })();
 
 })(this);

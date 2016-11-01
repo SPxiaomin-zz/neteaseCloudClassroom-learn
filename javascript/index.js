@@ -134,6 +134,43 @@
 
     // 3. 轮播图
     util.ready(function() {
+        var mSld = util.getElementsByClassName('m-sld')[0];
+        var imglist = mSld.getElementsByTagName('img');
+        var dotlist = util.getElementsByClassName(mSld, 'dot')[0].children;
+
+        var imgAmount = imglist.length; // 图片数量
+        var index = 0; // 当前图片显示的下标
+
+        var autoInterval = 5000; // 自动播放图片的切换时间
+
+        var time = 500; // 渐变总时间
+        var interval = 100; // 每次渐变时间
+        var internlOpacity = 1/(time/interval); // 每次渐变的透明度
+        var timerId; // 定时器的 Id
+        var oldIndex;
+
+        util.forEach(imglist, function(item, i) {
+            if (i == 0) {
+                util.setOpacity(item, 1);
+            } else {
+                util.setOpacity(item, 0);
+            }
+        });
+
+        // 切换下面小圆点
+        var switchDot = function() {
+            util.forEach(dotlist, function(item) {
+                if (item.className === 'z-show') {
+                    util.removeClass(item, 'z-show');
+                }
+            });
+
+            util.addClass(dotlist[index], 'z-show');
+        };
+
         // TODO: stop writing here
     });
 })();
+
+// TODO: util.getElementsByClassName
+// TODO: util.setOpacity

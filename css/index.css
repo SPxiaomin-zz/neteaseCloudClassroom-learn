@@ -174,6 +174,60 @@
 }
 
 /* ==========================================================================
+   module:sld
+============================================================================ */
+
+.m-sld {
+    height: 376px;
+}
+
+.m-sld .imgs {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+}
+
+.m-sld .imgs a {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+}
+
+.m-sld .imgs img {
+    width: 100%;
+    height: 100%;
+}
+
+.m-sld .dot {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+}
+
+.m-sld .dot span {
+    display: inline-block;
+
+    width: 10px;
+    height: 10px;
+
+    margin-right: 10px;
+    border-radius: 50%;
+
+    background: #000;
+}
+
+.m-sld .dot span.z-show {
+    background: #fff;
+}
+
+
+/* ==========================================================================
    module:modal
 ============================================================================ */
 

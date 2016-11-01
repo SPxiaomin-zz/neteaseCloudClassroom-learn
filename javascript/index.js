@@ -131,6 +131,9 @@
             });
         }
     });
-})();
 
-// md5 文件载入
+    // 3. 轮播图
+    util.ready(function() {
+        // TODO: stop writing here
+    });
+})();

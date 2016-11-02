@@ -92,6 +92,17 @@
 
             - 通过的是 `relative` 设置创建 `absolute` 定位时候的 `containing box` 来实现的；
 
+    - `.m-snav` 样式总结
+
+        - 布局分析
+
+            - `li` 通过的是定宽和浮动来实现水平并列布局的；
+            - `li` 中的左图右文字实现方式是：左图浮动，右边的文字设置 `margin-left` 来实现的；
+
+        - 细节分析
+
+            - `ul` 设置了负的 `margin` 值，这样就使得第一个 `li` 的 `padding-left` 值被抵消了，实现了内容靠边、中间设置 `padding` 的效果。
+
 ## js 总结
 
 - `util.js`：

@@ -226,6 +226,75 @@
     background: #fff;
 }
 
+/* ==========================================================================
+   module:snav
+============================================================================ */
+
+.m-snav ul {
+    height: 176px;
+
+    margin-left: -80px;
+}
+
+.m-snav li {
+    float: left;
+
+    width: 33.33%;
+
+    padding-left: 80px;
+    box-sizing: border-box;
+}
+
+.m-snav .logo {
+    float: left;
+
+    width: 80px;
+    height: 80px;
+
+    border-radius: 50px;
+
+    background: #39a030 center center no-repeat;
+}
+
+.m-snav .logo-1 {
+    background-image: url(../images/icons/opnCrs.png);
+}
+
+.m-snav .logo-2 {
+    background-image: url(../images/icons/cldClass.png);
+}
+
+.m-snav .logo-3 {
+    background-image: url(../images/icons/mooc.png);
+}
+
+.m-snav .explain {
+    margin-left: 100px;
+
+    font-size: 14px;
+}
+
+.m-snav .tt {
+    font-size: 22px;
+    font-weight: 300;
+}
+
+.m-snav .info {
+    margin: 20px 0;
+
+    color: #666;
+    line-height: 24px;
+}
+
+.m-snav .more {
+    color: #39a030;
+}
+
+.m-snav .more:hover {
+    color: #39a030;
+
+    text-decoration: underline;
+}
 
 /* ==========================================================================
    module:modal

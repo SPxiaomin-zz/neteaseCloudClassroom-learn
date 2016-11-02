@@ -86,6 +86,12 @@
 
                 - 放大镜是通过多添加一个元素并设置背景图片实现的，并且 `hover` 的时候也是通过修改 `background` 属性来实现状态转换的；
 
+    - `.m-sld` 样式总结
+
+        - 布局分析：
+
+            - 通过的是 `relative` 设置创建 `absolute` 定位时候的 `containing box` 来实现的；
+
 ## js 总结
 
 - `util.js`：
@@ -117,6 +123,27 @@
 
         - 就直接通过 `#attention` 的 `class` 值来替换显示已关注按钮；
 
+- 轮播图实现总结
+
+    - 核心原理：
+
+        - 图片的显示和隐藏通过的是设置 `opacity` 来完成的；
+        - 下面小圆点的更换是通过添加相应的 `class` 来实现的；
+
+    - 初始化：
+
+        - 首先将第一张图片的 `opacity` 设为 `1`，其它都是 `0`;
+        - 讲第一圆点的 `class` 设置为 `z-show`;
+
+    - 轮播：
+
+        - `5000ms` 轮播一次，通过的是 `setTimeout`：
+
+            - `switchDot` 修改圆点相应的 `class`；
+            - `switchImg` 通过 `setTimeout` 来分 `time/interval` 来逐步改变图片的 `opacity` 样式的值；
+
+    - `mouseover` 时 `clearTimeout` 取消轮播 ，`mouseout` 时以当前图片为第一图片重新开始进行轮播。
+
 ## 原作者错误处&不完善之处
 
 - index.html
@@ -145,3 +172,27 @@
 
         - 问题： 由于作者在 `addClass` 使用了三元符号添加了一个空格，并且在 `removeClass` 中 `replace` 的时候也是使用一个空格进行替换的，所以就会产生两个空格。
         - 解决方案： 通过在 `removeClass` 中的 `forEach` 中替换之后添加 `oldClassName = oldClassName.trim()` 去掉了字符串两边多余的空格。
+
+    - `getElementsByClassName`:
+
+        - `else` 代码块中存在逻辑问题
+
+                return function(oEl, sClass) {
+                    if (arguments.length == 0) {
+                        return ;
+                    }
+
+                    if (arguments.length == 1) {
+                        sClass = oEl;
+                        oEl = d;
+                    }
+
+                    var aEle = oEl.getElementsByTagName('*'),
+                        arr = [];
+
+                    forEach(aEle, function(item) {
+                        classReg(sClass).test(item.className) && arr.push(item);
+                    });
+
+                    return arr;
+                };

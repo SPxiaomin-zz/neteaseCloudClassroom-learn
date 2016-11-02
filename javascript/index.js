@@ -168,9 +168,57 @@
             util.addClass(dotlist[index], 'z-show');
         };
 
-        // TODO: stop writing here
+        /**
+         * 切换图片
+         * @param {[type]} oldIndex [上一张图片的index]
+         * @param {[type]} tarIndex [下一张图片的index]
+         * @return {[type]}     [description]
+         */
+        var switchImg = function(oldIndex, tarIndex) {
+            if (oldIndex == tarIndex) {
+                return ;
+            }
+
+            // 渐变函数
+            var gradualChange = function() {
+                if (util.getOpacity(imglist[oldIndex]) > 0) {
+
+                    if (imglist[tarIndex].style.opacity === '') {
+                        util.setOpacity(imglist[tarIndex], 0);
+                    }
+
+                    util.setOpacity(imglist[oldIndex], util.getOpacity(imglist[oldIndex]) - internlOpacity);
+                    util.setOpacity(imglist[tarIndex], parseFloat(util.getOpacity(imglist[tarIndex])) + parseFloat(internlOpacity));
+
+                    setTimeout(gradualChange, interval);
+                } else {
+                    util.setOpacity(imglist[oldIndex], 0);
+                    util.setOpacity(imglist[tarIndex], 1);
+                }
+            };
+            gradualChange();
+        };
+
+        var play = function() {
+            oldIndex = index;
+            index = (index + 1) % imgAmount;
+
+            timerId = setTimeout(function() {
+                switchImg(oldIndex, index);
+                switchDot();
+                play();
+            }, autoInterval);
+        };
+
+        var stop = function() {
+            index = oldIndex;
+            clearTimeout(timerId);
+        };
+
+        util.addEventListener(mSld, 'mouseout', play);
+        util.addEventListener(mSld, 'mouseover', stop);
+
+        play();
+
     });
 })();
-
-// TODO: util.getElementsByClassName
-// TODO: util.setOpacity

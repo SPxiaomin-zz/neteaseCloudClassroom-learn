@@ -205,6 +205,83 @@
     };
 
     /**
+     * 根据 Class 获取元素
+     * @param {[type]} [description]
+     * @return {[type]} [description]
+     */
+    var getElementsByClassName = util.getElementsByClassName = (function() {
+        if (d.getElementsByClassName) {
+            return function(oEl, sClass) {
+                if (arguments.length == 0) {
+                    return ;
+                }
+
+                if (arguments.length == 1) {
+                    sClass = oEl;
+                    oEl = d;
+                }
+
+                return oEl.getElementsByClassName(sClass);
+            };
+        } else {
+            return function(oEl, sClass) {
+                if (arguments.length == 0) {
+                    return ;
+                }
+
+                if (arguments.length == 1) {
+                    sClass = oEl;
+                    oEl = d;
+                }
+
+                var aEle = oEl.getElementsByTagName('*'),
+                    arr = [];
+
+                forEach(aEle, function(item) {
+                    classReg(sClass).test(item.className) && arr.push(item);
+                });
+
+                return arr;
+            };
+        }
+    })();
+
+    /**
+     * 给元素设置透明度
+     * @param {[type]} el [description]
+     * @param {[type]} value [description]
+     * @return {[type]} [description]
+     */
+    var setOpacity = util.setOpacity = function(el, value) {
+        if (ie678) {
+            el.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(opacity=' + value * 100 + ')';
+        } else {
+            el.style.opacity = value;
+        }
+    };
+
+    /**
+     * 获取透明度
+     * @param {[type]} element [description]
+     * @return {[type]} [description]
+     */
+    var getOpacity = util.getOpacity = function(el) {
+        if (ie678) {
+            var filterAttr = el.style.filter;
+
+            if (filterAttr === '') {
+                return 0;
+            }
+
+            var opacity = filterAttr.substring(filterAttr.indexOf('=') + 1, filterAttr.lastIndexOf(')'));
+
+            return parseFloat(opacity) / 100;
+        } else {
+            return el.style.opacity;
+        }
+    };
+
+    /**
      * 获取当前文档的 Cookies，返回 Cookie 对象
      * @return {[type]} [description]
      */

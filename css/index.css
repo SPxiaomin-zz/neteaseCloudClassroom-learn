@@ -315,7 +315,149 @@
    module:coursebd
 ============================================================================ */
 
+.m-coursebd {
+    padding: 80px 0 120px;
+}
 
+.m-coursebd .nav {
+    height: 50px;
+
+    margin-bottom: 20px;
+}
+
+.m-coursebd .nav li {
+    float: left;
+}
+
+.m-coursebd .nav li a {
+    display: block;
+
+    border: 1px solid #d4d3d3;
+    -webkit-box-shadow: 0 1px 0 #d4d3d3;
+    box-shadow: 0 1px 0 #d4d3d3;
+    padding: 13px 60px;
+
+    font-size: 20px;
+}
+
+.m-coursebd .nav li a:hover,
+.m-coursebd .nav li a.z-crl {
+    color: #fff;
+
+    background-color: #3e9e37;
+}
+
+.m-coursebd .main {
+    float: left;
+
+    width: 980px;
+}
+
+@media screen and (max-width: 1205px) {
+    .m-coursebd .main {
+        width: 735px;
+    }
+}
+
+.m-coursebd .courselist {
+    position: relative;
+}
+
+/*
+* suspend_course
+*/
+/* TODO: 简分析 & 记忆 */
+
+.m-coursebd .suspend_course {
+    position: absolute;
+    top: -10px;
+    left: 0;
+
+    width: 475px;
+
+    border: 1px solid #d0cfd0;
+
+    background: #fff;
+}
+
+.m-coursebd .suspend_course_main {
+    height: 125px;
+
+    padding: 10px;
+
+    color: #666;
+}
+
+.m-coursebd .suspend_course_main .logo {
+    width: 221px;
+    height: 123px;
+
+    float: left;
+}
+
+.m-coursebd .suspend_course_main .info {
+    float: left;
+
+    margin-left: 20px;
+}
+
+.m-coursebd .suspend_course_main .tt {
+    width: 214px;
+
+    margin-top: 5px;
+
+    color: #333;
+    font-size: 18px;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.m-coursebd .suspend_course_main .pnum {
+    margin: 16px 0;
+    padding-left: 16px;
+    background: url(../images/icons/people.png) 0 0 no-repeat;
+}
+
+.m-coursebd .suspend_course_main .author {
+    width: 214px;
+
+    margin-bottom: 10px;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.m-coursebd .suspend_course_introduce {
+    margin-top: 10px;
+    padding: 22px 33px 23px 20px;
+
+    color: #666;
+    font-size: 14px;
+    line-height: 25px;
+
+    background: #f8f8f8;
+
+    overflow: hidden;
+}
+
+/*
+* courselist
+*/
+
+.m-coursebd .courselist li {
+
+}
+
+.m-coursebd .courselist li a {
+
+}
+
+.m-coursebd .page-1 {
+    margin-right: 20px;
+}
 
 /* ==========================================================================
    module:modal

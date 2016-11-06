@@ -359,6 +359,10 @@
     }
 }
 
+.m-coursebd .page-1 {
+    margin-right: 20px;
+}
+
 .m-coursebd .courselist {
     position: relative;
 }
@@ -366,7 +370,6 @@
 /*
 * suspend_course
 */
-/* TODO: 简分析 & 记忆 */
 
 .m-coursebd .suspend_course {
     position: absolute;
@@ -448,16 +451,152 @@
 */
 
 .m-coursebd .courselist li {
-
+    float: left;
 }
 
 .m-coursebd .courselist li a {
+    display: block;
 
+    width: 220.8px;
+    height: 230px;
+
+    margin: 0 20px 20px 0;
+    border: 1px solid #ebebeb;
+    -webkit-box-shadow: 0 1px 1px 0 #f1f1f1;
+    box-shadow: 0 1px 1px 0 #f1f1f1;
+    padding: 1px;
+
+    color: #333;
+
+    background: #fff;
 }
 
-.m-coursebd .page-1 {
-    margin-right: 20px;
+.m-coursebd .courselist li a:hover {
+    color: #39a030;
 }
+
+.m-coursebd .courselist li .logo {
+    display: block;
+
+    width: 221px;
+    height: 123px;
+}
+
+.m-coursebd .courselist li .infoarea {
+    margin: 10px 5px;
+}
+
+.m-coursebd .courselist li .tt {
+    overflow: hidden;
+    white-space: nowrap;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+
+.m-coursebd .courselist li .writer {
+    margin-top: 10px;
+
+    color: #999;
+}
+
+.m-coursebd .courselist li .pnum {
+    display: inline-block;
+
+    max-width: 50px;
+    height: 8px;
+
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    padding: 3px 5px 4px 18px;
+
+    color: #999;
+
+    background: url(../images/icons/people.png) 4px 3px no-repeat;
+}
+
+.m-coursebd .courselist li .price {
+    margin-top: 10px;
+
+    color: #ff3f00;
+}
+
+/**
+* side
+*/
+/* TODO: 简忆 & 总结 */
+.m-coursebd .side {
+    float: right;
+
+    width: 225px;
+}
+
+.m-jsbox {
+    border: 1px solid #d4d3d3;
+
+    background: #fff;
+}
+
+.m-jsbox .tt {
+    padding: 20px 0px 20px 20px;
+    border-bottom: 1px solid #d4d3d3;
+
+    color: #333;
+    font: 16px/1 "Microsoft YaHei";
+}
+
+.m-jsbox .bd {
+    padding: 20px 14px 20px 20px;
+}
+
+.m-jsbox-1 .bd {
+    height: 680px;
+
+    overflow: hidden;
+}
+
+.m-jgjs .info {
+    margin-bottom: 10px;
+
+    color: #666;
+    font-size: 14px;
+}
+
+.m-rmph li {
+    height: 50px;
+
+    margin-bottom: 20px;
+}
+
+.m-rmph li img {
+    float: left;
+
+    width: 50px;
+    height: 50px;
+
+    margin-right: 12px;
+}
+
+.m-rmph li h2 {
+    margin-bottom: 10px;
+
+    color: #333;
+    font-size: 14px;
+
+    overflow: hidden;
+    white-space: nowrap;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+
+.m-rmph li span {
+    padding-left: 17px;
+
+    color: #999;
+
+    background: url(../images/icons/people.png) 0 0 no-repeat;
+}
+
 
 /* ==========================================================================
    module:modal

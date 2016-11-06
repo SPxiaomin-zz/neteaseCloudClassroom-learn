@@ -103,6 +103,56 @@
 
             - `ul` 设置了负的 `margin` 值，这样就使得第一个 `li` 的 `padding-left` 值被抵消了，实现了内容靠边、中间设置 `padding` 的效果。
 
+    - `.m-imgs` 样式分析
+
+        - 布局分析
+
+            - 通过的是背景图片的 `position` 来设置 `center top` 来实现的。
+
+    - `.m-coursebd` 样式分析
+
+        - 布局分析
+
+            - 通过定宽和浮动，实现了 `.main` & `.side` 的左右两栏布局。
+
+    - `.nav` 样式分析
+
+        - 布局分析
+
+            - `li` 左浮动并列到一行中；
+
+        - 细节分析
+
+            - `ul` 通过设置 `height` 这样也是一种清除浮动的方法；
+            - `a` 设置 `display: block` 这样才可以将设置的 `padding` 算入到高度计算当中；
+
+    - `.courselist`
+
+        - 布局分析
+
+            - `li` 左浮动并定宽，再借助与 `main` 根据 `viewport` 改变宽度，这样就可以实现3、4列的布局效果；
+
+        - 细节分析
+
+            - `.tt` 通过如下的代码，实现了在文字过多的时候，实现隐藏。
+
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+
+            - `pnum` 通过设置 `background` & `padding` 来实现左侧的人物头像图片的设置，并且图片进行了一定的位置偏移。
+
+
+    - `.suspend_course`
+
+        - 布局分析
+
+            - `.suspend_course_main` 通过 `.logo` `.info` 的定宽并左浮动实现并排布局的效果；
+
+        - 细节分析
+
+            - `.pnum` 通过设置 `padding-left` & `background-image` 来实现左侧的小图片；
+
 ## js 总结
 
 - `util.js`：
@@ -176,6 +226,10 @@
 
             - `z-index` 设置也是多余的，根据同一层级中，后来居上的原则，`.dot` 会覆盖在 `.imgs` 上面。
             - `text-align` 设置也是多余的，绝对定位之后，元素就收缩了。
+
+    - `.m-coursebd`
+
+        - `.courselist>li>a>.logo` 由于 `strut` 的存在，基线对齐的原因，所以会在图片的下方产生一定的空白，可以通过 `display: block` 消除图片下方的空白。
 
 - util.js
 

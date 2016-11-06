@@ -221,4 +221,86 @@
         play();
 
     });
+
+    // 4. 左侧内容 Tab 切换
+    util.ready(function() {
+        var courseUrl = 'http://study.163.com/webDev/couresByCategory.htm';
+        var courselist = document.getElementById('courselist');
+        var courselistOuter = document.getElementById('courselistOuter');
+        var tabs = document.getElementById('coursebdNav').getElementsByTagName('a');
+
+        // 创建课程悬浮窗元素
+        var createdetailCourseElement = function(dataObj) {
+            var wrapHtml = ('<div class="suspend_course" id="suspend_course-#{id}">');
+            wrapHtml += ('<div class="suspend_course_main f-cb">');
+            wrapHtml += ('<img class="logo" src="#{middlephotourl}" alt="">');
+            wrapHtml += ('<div class="info">');
+            wrapHtml += ('<h2 class="tt">#{name}</h2>');
+            wrapHtml += ('<p class="pnum"> #{learnercount} 人在学</p>');
+            wrapHtml += ('<p class="author">发布者: #{provider}</p>');
+            wrapHtml += ('<p class="classify">分类: #{categoryname}</p>');
+            wrapHtml += ('</div>');
+            wrapHtml += ('</div>');
+            wrapHtml += ('<p class="suspend_course_introduce">#{description}</p>');
+            wrapHtml += ('</div>');
+
+            var tmpEl = document.createElement('div');
+            tmpEl.innerHTML = wrapHtml.format(dataObj);
+
+            return tmpEl.childNodes[0];
+        };
+
+        // 鼠标移入
+        var mouseenterHandler = function() {
+            var divX = 0;
+            var divY = 0;
+
+            divX = this.offsetLeft + this.clientWidth;
+            divY = this.offsetTop;
+            var parentWidth = this.offsetParent.clientWidth;
+
+            var dataset = util.getElementDataSet(this);
+            var detailNode = createdetailCourseElement(dataset);
+
+            // 左右适应
+            var flagProcessingwidth = true;
+            if (parentWidth >= 980) {
+
+                if (dataset.index % 4 == 0) {
+                    detailNode.style.left = (parentWidth - this.offsetLeft) + 'px';
+                    flagProcessingwidth = false;
+                } else if (dataset.index % 4 == 3) {
+                    flagProcessingwidth = false;
+                }
+            } else if (parentWidth <= 735) {
+
+                if (dataset.index % 3 == 0) {
+                    flagProcessingwidth = false;
+                }
+            }
+
+            if (flagProcessingwidth) {
+                detailNode.style.left = (divX + 20) + 'px';
+            }
+            detailNode.style.top = divY + 'px';
+            courselistOuter.appendChild(detailNode);
+        };
+
+        // 鼠标移除
+        var mouseleaveHandler = function() {
+            var dataset = util.getElementDataSet(this);
+            var detailNode = document.getElementById('suspend_course-' + dataset.id);
+            courselistOuter.removeChild(detailNode);
+        };
+
+        var createCourseElement = function(dataObj, index) {
+            var courseUl = document.createElement('li');
+            var courseA = document.createElement('a');
+            courseA.setAttribute('href', 'http://study.163.com/course/introduction/' + dataObj.id + '.htm#/courseDetail');
+            // TODO: stop writing here
+        };
+    });
 })();
+
+// TODO: String.prototype.format
+// TODO: util.getElementDataSet

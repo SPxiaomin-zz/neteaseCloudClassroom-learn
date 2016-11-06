@@ -524,7 +524,6 @@
 /**
 * side
 */
-/* TODO: 简忆 & 总结 */
 .m-coursebd .side {
     float: right;
 
@@ -597,6 +596,55 @@
     background: url(../images/icons/people.png) 0 0 no-repeat;
 }
 
+/* ==========================================================================
+   module:page
+============================================================================ */
+
+.m-page {
+    height: 20px;
+}
+
+.m-page li {
+    float: left;
+}
+
+.m-page li a {
+    display: block;
+
+    width: 14px;
+    height: 16px;
+
+    margin-left: 10px;
+    padding: 4px 0px 0px 6px;
+
+    font: 12px/1 "Microsoft YaHei";
+}
+
+.m-page li a.pre,
+.m-page li a.next {
+    width: 20px;
+    height: 16px;
+
+    padding-left: 10px;
+}
+
+.m-page li a.z-sel {
+    color: #fff;
+
+    background-color: #9fd7b2;
+}
+
+.m-page li a.z-crl {
+    color: #39a030;
+}
+
+.m-page li a:hover {
+    color: #fff;
+
+    background-color: #9fd7b2;
+
+    cursor: pointer;
+}
 
 /* ==========================================================================
    module:modal

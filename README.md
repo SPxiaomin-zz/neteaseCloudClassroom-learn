@@ -126,7 +126,7 @@
             - `ul` 通过设置 `height` 这样也是一种清除浮动的方法；
             - `a` 设置 `display: block` 这样才可以将设置的 `padding` 算入到高度计算当中；
 
-    - `.courselist`
+    - `.courselist` 样式分析
 
         - 布局分析
 
@@ -143,7 +143,7 @@
             - `pnum` 通过设置 `background` & `padding` 来实现左侧的人物头像图片的设置，并且图片进行了一定的位置偏移。
 
 
-    - `.suspend_course`
+    - `.suspend_course` 样式分析
 
         - 布局分析
 
@@ -152,6 +152,23 @@
         - 细节分析
 
             - `.pnum` 通过设置 `padding-left` & `background-image` 来实现左侧的小图片；
+
+    - `.side` 样式分析
+
+        - 细节分析
+
+            - `.m-rmph li span` 左侧的小图片通过 `padding-left` & `background-image` 实现；
+
+    - `.m-page` 样式分析
+
+        - 布局分析
+
+            - `li` 通过 `float: left` 实现布局；
+
+        - 细节分析
+
+            - `ul` 设置了高度，这样也是一种清除浮动的方式。
+            - `a` 元素内容的水平和垂直居中是通过设置 `padding` 实现的，略微缺乏灵活，可以通过设置 `text-align: center` & `line-height` 来实现灵活的效果。
 
 ## js 总结
 
@@ -261,3 +278,27 @@
 
                     return arr;
                 };
+
+- index.js
+
+    - 左侧内容区 Tag 切换
+
+        - `mouseenterHandler`
+
+            `detailNode.style.left =(divX-this.clientWidth-detailNode.width) + "px";` 这行代码无效； 修改如下:
+
+                var flagProcessingwidth = true;
+                if (parentWidth >= 980) {
+
+                    if (dataset.index % 4 == 0) {
+                        detailNode.style.left = (parentWidth - this.offsetLeft) + 'px';
+                        flagProcessingwidth = false;
+                    } else if (dataset.index % 4 == 3) {
+                        flagProcessingwidth = false;
+                    }
+                } else if (parentWidth <= 735) {
+
+                    if (dataset.index % 3 == 0) {
+                        flagProcessingwidth = false;
+                    }
+                }

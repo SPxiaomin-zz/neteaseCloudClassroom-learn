@@ -293,12 +293,82 @@
             courselistOuter.removeChild(detailNode);
         };
 
+        // 创建课程
         var createCourseElement = function(dataObj, index) {
             var courseUl = document.createElement('li');
             var courseA = document.createElement('a');
             courseA.setAttribute('href', 'http://study.163.com/course/introduction/' + dataObj.id + '.htm#/courseDetail');
-            // TODO: stop writing here
+            courseA.setAttribute('target', 'view_window');
+
+            courseA.setAttribute('data-id', dataObj.id);
+            courseA.setAttribute('data-name', dataObj.name);
+            courseA.setAttribute('data-provider', dataObj.provider);
+            courseA.setAttribute('data-learnerCount', dataObj.learnerCount);
+            courseA.setAttribute('data-categoryName', dataObj.categoryName);
+            courseA.setAttribute('data-middlePhotoUrl', dataObj.middlePhotoUrl);
+            courseA.setAttribute('data-description', dataObj.description);
+            courseA.setAttribute('data-index', index + 1);
+
+            var wrapHtml = '<img class="logo" src="#{middlePhotoUrl}" alt="#{name}">';
+            wrapHtml += '<div class="infoarea">';
+            wrapHtml += '<h1 class="tt">#{name}</h1>';
+            wrapHtml += '<h2 class="writer">#{provider}</h2>';
+            wrapHtml += '<p class="pnum">#{learnerCount}</p>';
+            wrapHtml += '<p class="price">￥#{price}</p>';
+            wrapHtml += '</div>';
+
+            wrapHtml = wrapHtml.format(dataObj);
+            courseA.innerHTML = wrapHtml;
+            util.addEventListener(courseA, 'mouseenter', mouseenterHandler);
+            util.addEventListener(courseA, 'mouseleave', mouseleaveHandler);
+            courseUl.appendChild(courseA);
+
+            return courseUl;
         };
+
+        // 执行 ajax 查询
+        var go = function(ctype) {
+            util.ajax({
+                url: courseUrl,
+                header: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                data: {
+                    pageNo: 1,
+                    psize: 20,
+                    type: ctype
+                },
+                success: function(data) {
+                    courselist.innerHTML = '';
+                    var courseDataObj = JSON.parse(data);
+                    var courseList = courseDataObj.list;
+
+                    util.forEach(courseList, function(item, i) {
+                        courselist.appendChild(createCourseElement(item, i));
+                    });
+                }
+            });
+        };
+
+        util.forEach(tabs, function(item) {
+
+            util.addEventListener(item, 'click', function(event) {
+                util.preventDefault(event);
+                var target = event.target || event.srcElement;
+                util.forEach(tabs, function(item) {
+                    if (item.className === 'z-crl') {
+                        util.removeClass(item, 'z-crl');
+                    }
+                });
+                util.addClass(target, 'z-crl');
+                var dataset = util.getElementDataSet(target);
+                var ctype = dataset && dataset.type;
+                go(ctype || 10); // 如果获取不到，默认为10
+            });
+        });
+
+        // 触发事件
+        util.triggerEventListener(tabs[0], 'click');
     });
 })();
 

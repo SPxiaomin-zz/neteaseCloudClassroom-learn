@@ -1,4 +1,5 @@
 /*eslint no-console: ["error", { allow: ["warn", "error"] }] */
+// TODO: 写完后再次复习一次，将关键技术做做笔记，修改一下函数的顺序，和原作者一致。
 
 /**
 * 一些常用方法
@@ -16,6 +17,39 @@
     var ie678 = util.ie678 = /\w/.test('\u0130');
 
     var d = document;
+
+    // 对 String 的原型进行扩展，参考自深入浅出 Nodejs @author 3013366498@qq.com
+    String.prototype.format = (function () {
+        var regCache = [];
+        var numberReg = /\#{(\d+)\}/g;
+
+        return function(args) {
+            var funArguments = arguments;
+            var result = this;
+
+            if (arguments.length > 0) {
+
+                if (arguments.length == 1 && typeof(args) == 'object') {
+
+                    for (var key in args) {
+
+                        if (args.hasOwnProperty(key)) {
+                            var reg = regCache[key] || (regCache = new RegExp('(#{' + key + '})', 'g'));
+                            result = result.replace(reg, args[key]);
+                        }
+                    }
+                } else {
+                    result = result.replace(numberReg, function(m, x) {
+                        return funArguments[x];
+                    });
+                }
+
+                return result;
+            } else {
+                return this;
+            }
+        };
+    })();
 
     /**
     * 数组遍历函数
@@ -328,6 +362,24 @@
         }
 
         document.cookie = cookie;
+    };
+
+    var datasetReg = /^data-/;
+    var getElementDataSet = util.getElementDataSet = function(el) {
+        if (el.dataset) {
+            return el.dataset;
+        }
+
+        var oDataset = {};
+        forEach(el.attributes, function(item, i) {
+            var name = el.attributes[i].nodeName;
+
+            if (datasetReg.test(name)) {
+                oDataset[name.substring(5)] = el.attributes[i].value;
+            }
+        });
+
+        return oDataset;
     };
 
     /*

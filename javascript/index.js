@@ -371,6 +371,3 @@
         util.triggerEventListener(tabs[0], 'click');
     });
 })();
-
-// TODO: String.prototype.format
-// TODO: util.getElementDataSet

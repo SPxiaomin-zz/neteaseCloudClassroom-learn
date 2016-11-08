@@ -222,6 +222,16 @@
 
     - `mouseover` 时 `clearTimeout` 取消轮播 ，`mouseout` 时以当前图片为第一图片重新开始进行轮播。
 
+- 左侧内容区 Tab 切换实现总结
+
+    - 核心原理
+
+        - 通过在 `.nav` 的元素上绑定点击事件，通过 `ajax` 获取数据；然后将获取的数据，逐个创建元素并添加到 `dom` 中；
+        - 每个创建的元素绑定了鼠标移入移出事件，
+
+            - 当移入的时候，获取设置在元素上的 `data` 数据并创建元素，并设置相应的位置样式；
+            - 当移出的时候，删除相应的元素；
+
 ## 原作者错误处&不完善之处
 
 - index.html
@@ -278,6 +288,21 @@
 
                     return arr;
                 };
+
+    - `getElementDataSet` 存在细节错误，代码修改如下：
+
+            var getElementDataSet = util.getElementDataSet = function(el){
+        		if(el.dataset) return el.dataset;
+        		var oDataset = {};
+        		forEach(el.attributes, function(item, i){
+        			var name = el.attributes[i].nodeName;
+           			if(datasetReg.test(name)){
+        				oDataset[name.substring(5)] = el.attributes[i].value;
+        		   }
+        		})
+        		return oDataset;
+        	};
+
 
 - index.js
 

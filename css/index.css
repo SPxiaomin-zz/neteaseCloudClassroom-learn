@@ -18,9 +18,9 @@
     }
 }
 
-/*.g-ft {
+.g-ft {
     background: #2c3339;
-}*/
+}
 
 /* ==========================================================================
    元件
@@ -656,8 +656,77 @@
 
 .m-ft {
     height: 100px;
-    /* TODO: stop writing here */
+
+    padding: 80px 0;
+
+    color: #a2a4a5;
+    font-size: 12.5px;
 }
+
+.m-ft .wrap {
+    width: 964px;
+    height: 100%;
+
+    margin-left: 50px;
+}
+
+.m-ft .logoinfo {
+    float: left;
+
+    width: 542px;
+
+    margin-top: 10px;
+}
+
+.m-ft .beian {
+    margin-top: 30px;
+}
+
+.m-ft .beian2 {
+    margin-top: 15px;
+}
+
+.m-ft .info {
+    float: left;
+}
+
+.m-ft .info-1 {
+    width: 210px;
+}
+
+.m-ft .info-2 {
+    width: 132px;
+}
+
+.m-ft .info-3 {
+    width: 68px;
+}
+
+.m-ft .info li {
+    margin-top: 15px;
+}
+
+.m-ft .info a {
+    color: #a2a4a5;
+    font-size: 14.58px;
+}
+
+.m-ft .info li a:hover {
+    text-decoration: underline;
+}
+
+.m-ft .weibo {
+    background: url(../images/icons/weibo.png) 0 0 no-repeat;
+    background-position: 40px;
+}
+
+@media screen and (max-width: 1205px) {
+    .m-ft .wrap {
+        margin-left: 0;
+    }
+}
+
+/* TODO: 页面底部居中代码总结 */
 
 /* ==========================================================================
    module:modal

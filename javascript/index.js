@@ -370,4 +370,90 @@
         // 触发事件
         util.triggerEventListener(tabs[0], 'click');
     });
+
+    // 5 视频弹框
+    util.ready(function() {
+        var openVideo = document.getElementById('openVideo');
+        var closeVideo = document.getElementById('closeVideo');
+
+        util.addEventListener(openVideo, 'click', function() {
+            util.removeClass(videoModal, 'f-dn');
+        });
+
+        util.addEventListener(closeVideo, 'click', function() {
+            util.addClass(videoModal, 'f-dn');
+        });
+    });
+
+    // 6. 热门推荐
+    util.ready(function() {
+        var hotIntervalId;
+        var hotNode = document.getElementById('rmph');
+
+        // 创建课程节点
+        var createHotCrs = function(dataObj) {
+            var wrapHtml = ('<li>');
+            wrapHtml += ('<img src="#{smallPhotoUrl}"');
+            wrapHtml += ('<h2>#{name}</h2>');
+            wrapHtml += ('<span>#{learnerCount}</span>');
+            wrapHtml += ('</li>');
+
+            var tmpEl = document.createElement('div');
+            tmpEl.innerHTML = wrapHtml.format(dataObj);
+
+            return tmpEl.childNodes[0];
+        };
+
+        // 请求数据
+        util.ajax({
+            url: 'http://study.163.com/webDev/hotcouresByCategory.htm',
+            success: function(data) {
+                var hotCrsList = JSON.parse(data);
+
+                util.forEach(hotCrsList, function(item) {
+                    hotNode.appendChild(createHotCrs(item));
+                });
+            }
+        });
+
+        // 每5秒自动更换热点课程
+        var switchHotFn = function() {
+            // 每次滚动的高度
+            var _eachHeight = 70;
+            var _top = 0,
+                _timer;
+
+            _timer = setInterval(function() {
+                _top += 3;
+                hotNode.style.marginTop = '-' + _top + 'px';
+
+                if (_top > _eachHeight) {
+                    clearInterval(_timer);
+
+                    // 上一个结点
+                    var _onNode = hotNode.children[0];
+
+                    // 重复滚动
+                    if (_onNode.nodeType == 1) {
+                        hotNode.removeChild(_onNode);
+                        hotNode.appendChild(_onNode);
+                        hotNode.style.marginTop = '0px';
+                    }
+                }
+            }, 30);
+        };
+
+        // 轮播热点课程
+        hotIntervalId = setInterval(switchHotFn, 5000);
+
+        // 绑定 mouseover 事件
+        util.addEventListener(hotNode, 'mouseover', function() {
+            clearInterval(hotIntervalId);
+        });
+
+        // 绑定 mouseout 事件
+        util.addEventListener(hotNode, 'mouseout', function() {
+            hotIntervalId = setInterval(switchHotFn, 5000);
+        });
+    });
 })();

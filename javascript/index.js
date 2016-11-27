@@ -393,7 +393,7 @@
         // 创建课程节点
         var createHotCrs = function(dataObj) {
             var wrapHtml = ('<li>');
-            wrapHtml += ('<img src="#{smallPhotoUrl}"');
+            wrapHtml += ('<img src="#{smallPhotoUrl}">');
             wrapHtml += ('<h2>#{name}</h2>');
             wrapHtml += ('<span>#{learnerCount}</span>');
             wrapHtml += ('</li>');

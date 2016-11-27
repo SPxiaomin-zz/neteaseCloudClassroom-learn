@@ -1,5 +1,5 @@
 /*eslint no-console: ["error", { allow: ["warn", "error"] }] */
-// TODO: 写完后再次复习一次，将关键技术做做笔记，修改一下函数的顺序，和原作者一致。
+/* eslint no-empty: ["error", { "allowEmptyCatch": true }] */
 
 /**
 * 一些常用方法

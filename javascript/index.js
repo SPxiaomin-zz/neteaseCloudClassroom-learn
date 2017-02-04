@@ -406,7 +406,7 @@
 
         // 请求数据
         util.ajax({
-            url: 'http://study.163.com/webDev/hotcouresByCategory.htm',
+            url: 'https://study.163.com/webDev/hotcouresByCategory.htm',
             success: function(data) {
                 var hotCrsList = JSON.parse(data);
 

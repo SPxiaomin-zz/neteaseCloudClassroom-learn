@@ -1,5 +1,7 @@
 # 学习总结
 
+在线演示地址: <https://spxiaomin.github.io/neteaseCloudClassroom-learn/index.html>
+
 ## 导航
 
 - [效果图](#效果图)

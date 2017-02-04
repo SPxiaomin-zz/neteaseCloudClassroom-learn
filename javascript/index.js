@@ -224,7 +224,7 @@
 
     // 4. 左侧内容 Tab 切换
     util.ready(function() {
-        var courseUrl = 'http://study.163.com/webDev/couresByCategory.htm';
+        var courseUrl = 'https://study.163.com/webDev/couresByCategory.htm';
         var courselist = document.getElementById('courselist');
         var courselistOuter = document.getElementById('courselistOuter');
         var tabs = document.getElementById('coursebdNav').getElementsByTagName('a');
@@ -297,7 +297,7 @@
         var createCourseElement = function(dataObj, index) {
             var courseUl = document.createElement('li');
             var courseA = document.createElement('a');
-            courseA.setAttribute('href', 'http://study.163.com/course/introduction/' + dataObj.id + '.htm#/courseDetail');
+            courseA.setAttribute('href', 'https://study.163.com/course/introduction/' + dataObj.id + '.htm#/courseDetail');
             courseA.setAttribute('target', 'view_window');
 
             courseA.setAttribute('data-id', dataObj.id);
